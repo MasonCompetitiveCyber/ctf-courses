@@ -16,8 +16,8 @@ In this course, we are going to be discussing the basics of exploit development.
 
 ## Course List
 - PWN 100 - Integer Overflows
-- PWN 101 - Basic Shellcoding (TODO)
-- PWN 200 - Overwriting RIP (TODO)
+- PWN 101 - Basic Shellcoding
+- PWN 200 - Basic Buffer Overflow (TODO)
 - PWN 201 - Injecting Shellcode (TODO)
 - PWN 202 - Format String Vulnerabilities (TODO)
 - PWN 300 - Pwntools Introduction (TODO)
