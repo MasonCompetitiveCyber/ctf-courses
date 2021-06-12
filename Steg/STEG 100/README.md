@@ -48,7 +48,7 @@ Text steganography is not the most common, so you will probably won't see it tha
 Image steganography deals with hiding information inside of an image, which is known as the "cover image." This is one of the most popular forms of steganography, especially in CTFs. CTFs generally use the following methods of concealing information within an image: hiding it in the metadata, hiding it in the raw data, using image/pixel manipulation techniques (such as least-significant bit steganography), and embedding files within the main file (this is not only specific to images, however).
 
 #### `./metadata`
-Starting off super easy; hiding information in the metadata of an image. Metadata is an set of data desciribing important aspects of the image, such as copyright information, file statistics, descriptions, and other things such as GPS location data of where the image was taken, camera information, and so on (all of these are optional, you can remove all metadata from an image if you want to). On linux, there is a command-line tool called `exiftool` which can be used to inspect the metadata of files. You can follow along by using the `exif-raw-example.jpeg` file located in the `Steg/examples` folder.
+Starting off super easy; hiding information in the metadata of an image. Metadata is an set of data desciribing important aspects of the image, such as copyright information, file statistics, descriptions, and other things such as GPS location data of where the image was taken, camera information, and so on (all of these are optional, you can remove all metadata from an image if you want to). On linux, there is a command-line tool called `exiftool` which can be used to inspect the metadata of files. You can follow along by using the `exif-raw-example.jpeg` file.
 
 ```console
 $ exiftool exif-raw-example.jpeg
@@ -174,8 +174,8 @@ Comparing the two pixels, there is practically no visible or noticeable differen
 **Example:**
 There is a secret message hidden in this image using LSB:
 <p align="center">
-<img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/examples/lsb-chal-steg.png" width=50%  height=50%><br>
-	<em>from /Steg/examples/lsb-chal-steg.png</em>
+<img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 100/lsb-chal-steg.png" width=50%  height=50%><br>
+	<em>lsb-chal-steg.png</em>
 </p>
 
 There are several tools that I will demonstrate here. First, let's use https://stylesuxx.github.io/steganography. After uploading our file and pressing "Decode," we get the following output: 
