@@ -20,7 +20,7 @@
 
 Usually (but not always), when we exploit a target, we want to have the ability to execute any commands on that target. Typically, this means that we need to be able to obtain a shell prompt on the target, which will allow us to type in commands and achieve whatever goal we're trying to achieve as the attackers. On Linux systems, the `/bin/sh` file is used to give us a shell prompt, so if our goal is to execute commands on the target, then we would like to have the ability to execute the `/bin/sh` file.
 
-Most programmers do not want you to be exploiting their software, which is why most of the time you will not have easy access to a function that executes `system(/bin/sh)` for you when writing an exploit. For this reason, it is necessary for us to write our own code in assembly that executes `system(/bin/sh)`. The assembled code is known as our "shellcode" or our "payload." Once we create our shellcode, we will be able to "inject" it into a program using a vulnerability such as a buffer overflow. The shellcode will then be executed after its injected.
+Most programmers do not want you to be exploiting their software, which is why most of the time you will not have easy access to a function that executes `system(/bin/sh)` for you when writing an exploit. For this reason, it is necessary for us to write our own code in assembly that executes `system(/bin/sh)`. The assembled code is known as our "shellcode" or our "payload." Once we create our shellcode, we will be able to "inject" it into a program using a vulnerability such as a buffer overflow. The shellcode will then be executed after it's injected.
 
 We will go over exactly how you do this code injection when we go over buffer overflows, but, for now, we need to first create the code that we want to have executed in the first place. The act of creating the shellcode itself is known as "shellcoding." Shellcode can, in theory, do whatever you program it to do, but this tutorial specifically focuses on creating shellcode that executes `system("/bin/sh")` for us. This way, when the shellcode is injected into another process, we will have the ability to type in whatever commands we want.
 
@@ -39,7 +39,7 @@ A list of all Linux x86_64 system calls can be found [here](https://blog.rchapma
 - System call #3: `sys_close(unsigned int fd)` - Closes a file.
 - System call #59: `sys_execve(const char *filename, const char *const argv[], const char *const envp[])` - Executes a file.
 
-If a system calls requires arguments, then you can set those arguments using the [x86_64 calling convention](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf). The calling convention states that you can pass up to six arguments into the following registers: `rdi`, `rsi`, `rdx`, `rcx`, `r8`, and `r9`. If there are any more arguments, then you can push the rest of them onto the stack in reverse order. For example, if you wanted to make a call to `sys_execve()`, you would set the following registers:
+If a system call requires arguments, then you can set those arguments using the [x86_64 calling convention](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf). The calling convention states that you can pass up to six arguments into the following registers: `rdi`, `rsi`, `rdx`, `rcx`, `r8`, and `r9`. If there are any more arguments, then you can push the rest of them onto the stack in reverse order. For example, if you wanted to make a call to `sys_execve()`, you would set the following registers:
 - `rax` is set to 59
 - `rdi` is set to a pointer to a string containing the file name
 - `rsi` is set to a pointer to an array of strings containing the arguments (can also be NULL)
@@ -57,7 +57,7 @@ _start:
 mov rax, 59 ; Syscall for execve
 mov rbx, 0 ; Sets rbx to NULL
 push rbx ; Pushes a string terminator onto the stack
-mov rbx, 0x68732f6e69622f ; Moves "/bin/sh" (wrtten in ASCII) to rbx
+mov rbx, 0x68732f6e69622f ; Moves "/bin/sh" (written in ASCII) to rbx
 push rbx ; Pushes "/bin/sh" onto the stack
 mov rdi, rsp ; Get a pointer to "/bin/sh" in RDI
 mov rsi, 0 ; Sets rsi to NULL
@@ -115,9 +115,9 @@ Note that this trick usually only works for 64-bit machines. If you're trying to
 
 ## Bad Characters
 
-We have figured out that using `b83b000000bb000000005348bb2f62696e2f736800534889e7be00000000ba000000000f05` as our shellcode will give us a shell. However, there is a slight problem here: the payload contains lots of `00` bytes. If we attempted to inject this into a vulnerable C program, then it is quite likely that the payload gets cut off after the first `00` byte appears because C interprets these NULL characters as string terminators.
+We have figured out that using `b83b000000bb000000005348bb2f62696e2f736800534889e7be00000000ba000000000f05` as our shellcode will give us a shell. However, there is a slight problem here: the payload contains lots of `00` bytes. If we attempt to inject this into a vulnerable C program, then it is quite likely that the payload gets cut off after the first `00` byte appears because C interprets these NULL characters as string terminators.
 
-These `00` characters are an example of something exploit developers refer to as badchars. Badchars are basically hex values that should not appear in our shellcode because they cause the target program to behave differently. NULLs may not be the only badchar in a target program; they are just the most common. For example, if you were targetting a networking application that used 0x09 (tab) to indicate the end of a message, then 0x09 would also be a badchar that you would avoid using in your shellcode.
+These `00` characters are an example of something exploit developers refer to as badchars. Badchars are basically hex values that should not appear in our shellcode because they cause the target program to behave differently. NULLs may not be the only badchar in a target program; they are just the most common. For example, if you were targeting a networking application that used 0x09 (tab) to indicate the end of a message, then 0x09 would also be a badchar that you would avoid using in your shellcode.
 
 Whenever you have characters that cause the target program to behave in a special way, you should treat those characters as badchars and avoid using them in your shellcode. Here, we will go over a method you can use in order to remove NULL characters from your shellcode.
 
