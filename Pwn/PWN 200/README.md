@@ -20,9 +20,7 @@ The stack buffer overflow is probably the most common vulnerability seen in CTF 
 
 ## Stack Frames
 
-![](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/goat.jpg/pwn/stack_frames.png)
-
-Image source: https://en.citizendium.org/wiki/Stack_frame
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/pwn/stack_frames.png" width=35%  height=35%><br>Image source: https://en.citizendium.org/wiki/Stack_frame</p>
 
 Before we get into how you can actually conduct a buffer overflow attack, we need to discuss how the stack works. Whenever a function is called in assembly, a new stack frame will be created. Since the stack grows down, the stack frame is always created by subtracting a value from `rsp`, and it is always destroyed by adding a value to `rsp`. Whenever a function is called by the program, the following will occur:
 1. If the caller needs to, the caller can save the contents of the caller-saved registers by pushing them onto the stack. According to the [x86_64 Calling Convention](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf), the caller-saved registers are `r10`, `r11`, plus any registers that contain parameters.
