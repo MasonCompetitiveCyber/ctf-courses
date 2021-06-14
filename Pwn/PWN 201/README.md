@@ -294,7 +294,7 @@ zsh: illegal hardware instruction  ./bof < test
 As it turns out, there is a minor problem with our shellcode. Let's take a look at this exploit through GDB and see why we have this problem.
 
 ```sh
-$ gdb bof                                                                                                132 ⨯
+$ gdb bof
 GNU gdb (Debian 10.1-1.4) 10.1
 Copyright (C) 2020 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
