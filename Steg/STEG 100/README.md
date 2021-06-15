@@ -153,19 +153,19 @@ The next level up in difficulty for image steganography involes the actual manip
 
 Images, as with all data, are really just a collection of bits -- 1s and 0s. Eight of these bits comprise a byte, which in the case of a simple RGB image, will represent a color, either red, green, or blue (as you can see in the image below). The bit on the right end of a byte is called the least significant bit because it represents the smallest value, a change of 1 (circled on the image in brown). This is the exact premise that LSB steganography makes use of when attempting to hide information in images. If you can change the least significant bit of each byte of data without altering the overall data to a noticeable amount, then you can successfully hide information without getting noticed. 
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/rgb-bytes.png" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/rgb-bytes.png" width=40%  height=40%></p>
 
 An image is composed of pixels, which (in basic RGB images) are each three bytes of information, with each byte corresponding to either red, green, or blue. The value of each byte corresponds to the amount of each color in the composition of the overall color of the pixel. So if the values of the three bytes are `255, 0, 0`, then the pixel’s color will be 100% red. Let us use the pixel color we see in image below as an example. The decimal values for the pixel are `63, 212, 184` (for red, green, and blue respectively), which in binary are `00111111, 11010100, 10111000`.
 
 <p align="center">
-	<img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/cover-pixel.png" width=10%  height=10%><br>
+	<img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/cover-pixel.png" width=10%  height=10%><br>
 	<em>original color</em>
 </p>
 
 This pixel will act as our cover image in the following example of LSB steganography. Let us say that we want to hide a 3-bit secret message “010” in this pixel, or cover image. Our task would now be to replace the least significant bits of each byte with the bits of our secret message. Our first secret bit “0” will replace the least significant bit in the first byte of the pixel `00111111`, so this byte will become `00111110`. We complete this process for the remaining to bits and their corresponding bytes of the pixel. Our final result after replacing the least significant bits will be `00111110, 11010101, 10111000` which in decimal are the values `62, 213, 184`. These byte values correspond to the pixel color seen below.
 
 <p align="center">
-	<img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg-pixel.png" width=10%  height=10%><br>
+	<img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/steg-pixel.png" width=10%  height=10%><br>
 	<em>after steg</em>
 </p>
 
