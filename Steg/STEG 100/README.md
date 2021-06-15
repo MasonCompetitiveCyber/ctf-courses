@@ -204,7 +204,6 @@ There is also:
 - TCTF: TODO
 - picoCTF: TODO
 - TryHackMe: TODO
-Note: If relevant, you can put practice challenges within chapters themselves. 
 
 ## More Resources:
 - https://towardsdatascience.com/hiding-data-in-an-image-image-steganography-using-python-e491b68b1372
