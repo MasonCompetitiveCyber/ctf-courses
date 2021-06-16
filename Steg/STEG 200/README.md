@@ -1,6 +1,6 @@
 <h1 align="center">STEG 200</h1>
   <p align="center">
-     More Image Steg and Audio Steg
+     More Image Steg
   </p>
 
 ### Table of contents
@@ -15,7 +15,7 @@
 - [Creators](#creators)
 
 # Introduction
-In this course, we will continue talking about methods of image steganography and introduce methods of audio steganography. For image steg, we will talk about: LUT, bit planes, XOR, embedded files. For audio steg, we will talk about LSB, and spectrograms/sonic visualizers. There are almost an infinite amount of ways to hide information, so it's not feasible to go through all of them, but at least these should cover basic CTF steg problems.
+In this course, we will continue talking about methods of image steganography, including methods such as LUT manipulation, bit planes, XOR, and embedded files. There are almost an infinite amount of ways to hide information, so it's not feasible to go through all of them, but at least these should cover basic CTF steg problems.
 
 # Image LUT
 LUT stands for Lookup Table, which produce color images by mapping numbers to colors. LUT's are used for creating N-bit color images and color correcting. Unlike RGB color images that use bytes to code for RGB values for color, images like 8-bit color images will use an LUT. Here's an image to show how it works:
@@ -37,7 +37,7 @@ We can see 256 different colors (which makes sense since an 8-bit value can hold
 
 Where is this going? Well what happens if we take an image and make all of the LUT colors the exact same, maybe black? Well then the entire image will be black and we will have no idea what the actual image is supposed to show, and thus we can hide a secret message. 
 
-Let's say we're given the following image (`lut-steg.tif`) and are tasked with finding the secret message: 
+Let's say we're given the following image [lut-steg.tif](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.tif) and are tasked with finding the secret message: 
 
 <p align="center">
     <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/lut-steg-display.png" width=40%  height=40%><br>
@@ -67,13 +67,13 @@ Hiding images in specific bit planes is a popular method of steganography. This 
 
 Various tools usually can help visualize these bit planes based on the color of the pixel. So red bit plane 0 would give you all of the bits in bit plane 0 for only the bytes coding for red of each pixel, and so on. There are two good tools for this: `stegsolve` (linux) and [stegonline](https://stegonline.georgeom.net/). Use the following commands to install and run stegsolve on linux:
 
-```bash
+```
 wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar
 chmod +x stegsolve.jar
 ./stegsolve.jar
 ```
 
-Let's take a look at the following image and see if we can find the flag by looking through the bit planes. I will be using [stegonline](https://stegonline.georgeom.net/) but `stegsolve` will work the exact same.
+Let's take a look at the following image [octogun-bit-plane.png](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/octogun-bit-plane.png) and see if we can find the flag by looking through the bit planes. I will be using [stegonline](https://stegonline.georgeom.net/) but `stegsolve` will work the exact same.
 
 <p align="center">
     <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/octogun-bit-plane.png" width=40%  height=40%><br>
@@ -104,16 +104,17 @@ Another method of hiding images in other images is performing a logic operation 
 
 XOR is a very popular operation which you will encounter a lot, especially in cryptography. This is because it's copeletely reversible, so `x ⊕ y = z, x = y ⊕ z`. Try to verify this in your head using the table above. In relation to image steganography, this means that if you XOR your secret image with some random cover image and get an output image, you can get your secret image back by XORing the output image with the cover image (the cover image is acting like a key). In formula terms: `steg operation: key ⊕ message = output`, `unsteg operation: output ⊕ key = message`, in which `key` = cover image and `message` = secret image. I will not go into detail about uses of XOR in cryptography since it is discussed in the CRYPTO course.
 
-Let's say we're given two files, the output of an image XOR operation (`xor-steg.tif`) and the cover image used in the operation (`xor-cover.jpg`):
+Let's say we're given two files, the output of an image XOR operation [xor-steg.tif](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/xor-steg.tif) and the cover image used in the operation [xor-cover.jpg](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/xor-cover.jpg):
+
+<p align="center">
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/xor-steg-display.png" width=40%  height=40%><br>
+    <em>xor-steg</em><br>
+    <em>github can't display the real image file properly, so this is just a screenshot of it, please downlaod the real file from this folder</em>
+</p>
 
 <p align="center">
     <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-cover.jpg" width=40%  height=40%><br>
     <em>xor-cover.jpg</em>
-</p>
-
-<p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/xor-steg-display.png" width=40%  height=40%><br>
-    <em>github can't display the real image file properly, so this is just a screenshot of it, please downlaod the real file from this folder</em>
 </p>
 
 There are several ways you can XOR these, including using `imagemagick` on linux or using Fiji, as we did last time. I will show both methods here.
