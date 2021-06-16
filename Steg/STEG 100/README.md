@@ -201,18 +201,13 @@ There is also:
 
 
 ## Practice:
-- TCTF: challenge title or link: https://tctf.competitivecyber.club/challenges#Strcmp-106
-	- try to get at least one TCTF challenge
-- Whatever else you find; ex:
-	- picoCTF: challenge title or link: https://play.picoctf.org/practice/challenge/147
-	- TryHackMe: relevant room title or link: https://tryhackme.com/room/introtonetworking
-
-Note: If relevant, you can put practice challenges within chapters themselves. 
+- TCTF: TODO
+- picoCTF: TODO
+- TryHackMe: TODO
 
 ## More Resources:
-- https://portswigger.net/web-security/all-labs
-- https://cryptohack.org/
-- ...
+- https://towardsdatascience.com/hiding-data-in-an-image-image-steganography-using-python-e491b68b1372
+- https://itnext.io/steganography-101-lsb-introduction-with-python-4c4803e08041
 
 ## Creators
 
