@@ -21,17 +21,17 @@ In this course, we will continue talking about methods of image steganography an
 LUT stands for Lookup Table, which produce color images by mapping numbers to colors. LUT's are used for creating N-bit color images and color correcting. Unlike RGB color images that use bytes to code for RGB values for color, images like 8-bit color images will use an LUT. Here's an image to show how it works:
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/how-lut-works.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/how-lut-works.png" width=60%  height=60%><br>
     <em>source: http://40two.info/barge/image_processing/Intro/PDF/Lookup_Tables.pdf</em>
 </p>
 
 To interact with the LUT of an image, I will use a tool called [Fiji](https://imagej.net/software/fiji/). Let's look at this 8-bit image:
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/parrot.gif" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/parrots.gif" width=40%  height=40%></p>
 
 Using Fiji, we can go to `Image > Color > Edit LUT` to see the following LUT:
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/parrot-lut.png" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/parrot-lut.png" width=30%  height=30%></p>
 
 We can see 256 different colors (which makes sense since an 8-bit value can hold numbers 0-255). By changing the colors associated to any of the 256 values, we can change the colors that make up the image. 
 
@@ -40,7 +40,7 @@ Where is this going? Well what happens if we take an image and make all of the L
 Let's say we're given the following image and are tasked with finding the secret message: 
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/lut-steg.tif" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.tif" width=40%  height=40%><br>
     <em>lut-steg.tif</em>
 </p>
 
