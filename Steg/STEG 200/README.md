@@ -37,16 +37,16 @@ We can see 256 different colors (which makes sense since an 8-bit value can hold
 
 Where is this going? Well what happens if we take an image and make all of the LUT colors the exact same, maybe black? Well then the entire image will be black and we will have no idea what the actual image is supposed to show, and thus we can hide a secret message. 
 
-Let's say we're given the following image and are tasked with finding the secret message: 
+Let's say we're given the following image (`lut-steg.tif`) and are tasked with finding the secret message: 
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.png" width=40%  height=40%><br>
-    <em>lut-steg.gif</em>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/lut-steg-display.png" width=40%  height=40%><br>
+    <em>github can't display the real image file properly, so this is just a screenshot of it, please downlaod the real file from this folder</em>
 </p>
 
 Opening it in Fiji and viewing the LUT, we see that it's all black.
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/steg-lut.png" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/steg-lut.png" width=30%  height=30%></p>
 
 If we click on the first LUT color value and change it to something that's not black, like red, we see the secret message.
 
@@ -104,17 +104,16 @@ Another method of hiding images in other images is performing a logic operation 
 
 XOR is a very popular operation which you will encounter a lot, especially in cryptography. This is because it's copeletely reversible, so `x ⊕ y = z, x = y ⊕ z`. Try to verify this in your head using the table above. In relation to image steganography, this means that if you XOR your secret image with some random cover image and get an output image, you can get your secret image back by XORing the output image with the cover image (the cover image is acting like a key). In formula terms: `steg operation: key ⊕ message = output`, `unsteg operation: output ⊕ key = message`, in which `key` = cover image and `message` = secret image. I will not go into detail about uses of XOR in cryptography since it is discussed in the CRYPTO course.
 
-Let's say we're given two files, the output of an image XOR operation and the cover image used in the operation:
+Let's say we're given two files, the output of an image XOR operation (`xor-steg.tif`) and the cover image used in the operation (`xor-cover.jpg`):
 
 <p align="center">
     <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-cover.jpg" width=40%  height=40%><br>
-    <em>cover image</em>
+    <em>xor-cover.jpg</em>
 </p>
 
-
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-steg.png" width=40%  height=40%><br>
-    <em>XOR output</em>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/xor-steg-display.png" width=40%  height=40%><br>
+    <em>github can't display the real image file properly, so this is just a screenshot of it, please downlaod the real file from this folder</em>
 </p>
 
 There are several ways you can XOR these, including using `imagemagick` on linux or using Fiji, as we did last time. I will show both methods here.
