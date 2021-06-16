@@ -40,8 +40,8 @@ Where is this going? Well what happens if we take an image and make all of the L
 Let's say we're given the following image and are tasked with finding the secret message: 
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.gif" width=40%  height=40%><br>
-    <em>lut-steg.tif</em>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.png" width=40%  height=40%><br>
+    <em>lut-steg.gif</em>
 </p>
 
 Opening it in Fiji and viewing the LUT, we see that it's all black.
@@ -61,7 +61,7 @@ p.s. The tool `stegsolve` will be introduced in the next section, which has the 
 Hiding images in specific bit planes is a popular method of steganography. This method is very similar to LSB steg, in that it manipulates the values of the actual bits of a pixel. Each bit in an RGB byte is a part of a bit plane. The LSB would be bit plane 0. The next bit would be bit plane 1, and so on. This means that LSB steg is really just using getting information from one specific bit plane. Here is a visualization of the 8 bit planes in a greyscale image:
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/bit-planes.jpg" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/bit-planes.jpg" width=60%  height=60%><br>
     <em>source: https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/53189/versions/1/screenshot.jpg</em>
 </p>
 
@@ -76,7 +76,7 @@ chmod +x stegsolve.jar
 Let's take a look at the following image and see if we can find the flag by looking through the bit planes. I will be using [stegonline](https://stegonline.georgeom.net/) but `stegsolve` will work the exact same.
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/octogun-bit-plane.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/octogun-bit-plane.png" width=40%  height=40%><br>
     <em>source: my incredible Paint3D skills (octogun-bit-plane.png)</em>
 </p>
 
@@ -107,13 +107,14 @@ XOR is a very popular operation which you will encounter a lot, especially in cr
 Let's say we're given two files, the output of an image XOR operation and the cover image used in the operation:
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/xor-steg.gif" width=40%  height=40%><br>
-    <em>XOR output</em>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-cover.jpg" width=40%  height=40%><br>
+    <em>cover image</em>
 </p>
 
+
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/xor-cover.jpg" width=40%  height=40%><br>
-    <em>cover image</em>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-steg.png" width=40%  height=40%><br>
+    <em>XOR output</em>
 </p>
 
 There are several ways you can XOR these, including using `imagemagick` on linux or using Fiji, as we did last time. I will show both methods here.
@@ -134,6 +135,6 @@ chmod +x magic
 3. You should see the flag in the output image!
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/xor-secret.jpg" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-secret.jpg" width=70%  height=70%><br>
     <em>secret image</em>
 </p>
