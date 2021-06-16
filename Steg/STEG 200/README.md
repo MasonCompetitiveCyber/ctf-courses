@@ -40,7 +40,7 @@ Where is this going? Well what happens if we take an image and make all of the L
 Let's say we're given the following image and are tasked with finding the secret message: 
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.tif" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/lut-steg.gif" width=40%  height=40%><br>
     <em>lut-steg.tif</em>
 </p>
 
@@ -107,7 +107,7 @@ XOR is a very popular operation which you will encounter a lot, especially in cr
 Let's say we're given two files, the output of an image XOR operation and the cover image used in the operation:
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/xor-steg.tif" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/steg/STEG 200/xor-steg.gif" width=40%  height=40%><br>
     <em>XOR output</em>
 </p>
 
