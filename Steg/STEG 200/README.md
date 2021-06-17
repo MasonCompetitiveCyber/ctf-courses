@@ -9,7 +9,7 @@
 - [Image LUT](#image-lut)
 - [Bit Planes](#image-bit-planes)
 - [XOR](#image-xor)
-
+- [Files Within Files](#files-within-files)
 - [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
@@ -138,3 +138,162 @@ chmod +x magic
     <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/xor-secret.jpg" width=70%  height=70%><br>
     <em>secret image</em>
 </p>
+
+# Files Within Files
+One popular method of hiding files is embedding them entirely within another. This topic overlaps heavily with that of forensics, so I will not be going over how it works here. You should head over to Forensics 100 to learn about it. I am only including this topic within Steganography because it is a popular steg challenge type.
+
+To check if a file has any files embedded within it, you can use the linux tool `binwalk`. For example, let's say we're given [fileception-cover.png](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/fileception-cover.png) 
+
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/fileception-cover.png" width=40%  height=40%></p>
+
+Let's run `binwalk` against it:
+
+```console
+$ binwalk fileception-cover.png 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             PNG image, 1917 x 1078, 8-bit/color RGB, non-interlaced
+41            0x29            Zlib compressed data, default compression
+337629        0x526DD         PNG image, 1200 x 400, 8-bit/color RGBA, non-interlaced
+```
+We can see that it found a `PNG`, `Zlib compressed data`, and another `PNG`. We can safely ignore the `Zlib compressed data` as PNG's use zlib to compress the image datastream.  We are left with the fact that binwalk identified two different PNG images wihthin `fileception-cover.png`, so how do we extract them?
+
+I usually stick to two main tools for extraction, `binwalk` and `foremost`. Basically if one doesn't work, I use the other.
+
+### Extract with `binwalk`
+__Syntax:__ `$ binwalk -e fileception-cover.png`<br>
+__Output:__ directory called `_fileception-cover.png.extracted`<br>
+If we look in that directory we don't see anything. There may be a way to adjust some binwalk options to make it work, but before wasting time on that, we can try `foremost`
+
+### Extract with `foremost`
+```console
+$ foremost -v fileception-cover.png
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Wed Jun 16 21:58:57 2021
+Invocation: foremost -v fileception-cover.png 
+Output directory: /root/Documents/masoncc/myChals/output
+Configuration file: /etc/foremost.conf
+Processing: fileception-cover.png
+|------------------------------------------------------------------
+File: fileception-cover.png
+Start: Wed Jun 16 21:58:57 2021
+Length: 344 KB (352765 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.png 	     329 KB 	          0 	  (1917 x 1078)
+1:	00000659.png 	      14 KB 	     337629 	  (1200 x 400)
+*|
+Finish: Wed Jun 16 21:58:57 2021
+
+2 FILES EXTRACTED
+	
+png:= 2
+```
+__Output:__ directory called `output`<br>
+If we look in that direcotry, we see a subdirectory called `png`, which contains two files.
+```console
+$ ls output/png
+00000000.png  00000659.png
+```
+
+Opening those two images, we see that `00000659.png` contains a secret message:
+
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/fileception-secret.png" width=40%  height=40%></p>
+
+If you are interested in learning more about how this works and other use-cases, please head over to Forensics 100 which will be covering file carving and binwalk in more depth.
+
+# Steghide
+Finally, I will talk about one of the most common tools in steganography challenges, `steghide`. You can read how the tool works on their [manpage](http://steghide.sourceforge.net/documentation/manpage.php) since it's quite involved. All you really have to know is how to use it.
+
+First thing to keep in mind is its supported file formats: `JPEG`, `BMP`, `WAV` and `AU`. This means that if you're solving a challenge and it isn't one of these file formats, you can elimitate this as a possible way to solve it.
+
+### Embedding Files
+```console
+$ steghide embed -cf coverfile.jpeg -ef secretfile.jpeg -sf outputfile.jpeg -p secretpassword
+```
+*p.s. there are plenty of other options, just look at the help menu of steghide*
+
+### Get Info 
+Before attempting to extract anything, I like have `steghide` attempt to display info about the given file. With the correct password, it will give us useful information, including if there is an embedded file.
+
+Let's look at [steghidden.jpeg](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/steghidden.jpeg):
+
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/steghidden.jpeg" width=40%  height=40%></p>
+
+Let's use the `steghide` `info` function to try and see if there is an embedded file.
+
+```console
+$ steghide info steghidden.jpeg                    
+"steghidden.jpeg":
+  format: jpeg
+  capacity: 26.8 KB
+Try to get information about embedded data ? (y/n) y
+Enter passphrase: 
+```
+We see that it asks for a password. Maybe we hope that no password is set, so we can just press "enter" (we can also provide the `-p` parameter to specify the password when running the initial command)
+```console
+steghide: could not extract any data with that passphrase!
+```
+Damn, no dice.
+
+Let's pretend, for now, that we know the password from some hint in the challenge or that indeed there was no password set.
+
+```console
+$ steghide info steghidden.jpeg -p "secretpassword"                 
+"steghidden.jpeg":
+  format: jpeg
+  capacity: 26.8 KB
+  embedded file "flag.jpeg":
+    size: 17.1 KB
+    encrypted: rijndael-128, cbc
+    compressed: yes
+```
+
+We see that there is an embedded file called `flag.jpeg`. 
+
+### Extract Hidden File
+
+```console
+$ steghide extract -sf steghidden.jpeg -xf stegunhidden.jpeg -p "secretpassword"
+wrote extracted data to "stegunhidden.jpeg".
+```
+
+Opening [stegunhidden.jpeg](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/stegunhidden.jpeg) we see:
+
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/stegunhidden.jpeg" width=40%  height=40%></p>
+
+But what if we hadn't known the password?
+
+### Attempt Password Brute Force
+If we don't know the password to use for `steghide`, we can use a tool called [stegbrute](https://github.com/R4yGM/stegbrute). I'm not sure if it's already pre-installed on kali, so if not, follow the installation instructions on the GitHub. `stegbrute` will take in a wordlist and try every entry as the password to `steghide`. This may take a while depending on the length of your wordlist and the number of threads you tell `stegbrute` to use.
+
+```console
+$ stegbrute -f steghidden.jpeg -w /usr/share/wordlists/rockyou.txt -t 10 -x stegunhidden.jpeg
+============================================================
+     ____  _             ____             _       
+    / ___|| |_ ___  __ _| __ ) _ __ _   _| |_ ___ 
+    \___ \| __/ _ \/ _` |  _ \| '__| | | | __/ _ \
+     ___) | ||  __/ (_| | |_) | |  | |_| | ||  __/
+    |____/ \__\___|\__, |____/|_|   \__,_|\__\___|
+                   |___/                          
+
+StegBrute v0.1.1 - By R4yan
+https://github.com/R4yGM/StegBrute
+
+exist
+Bruteforcing the file 'steghidden.jpeg' with the wordlist '/usr/share/wordlists/rockyou.txt' using 10 threads
+
+password try: secretpassword - Success 
+File extracted!
+Password: secretpassword
+Results written in: stegunhidden.jpen
+Tried passwords : 80999
+Successfully cracked in 961.31s
+============================================================
+```
+
+After about 80,999 password attempts and 16 minutes, it finally cracked it! Allocating more than 10 threads will probably speed up the process some, but it will still be a pretty slow process. Unless you're confident that the steg challenge wants you to use steghide to find a hidden file/brute force steghide, this may not be the way.
