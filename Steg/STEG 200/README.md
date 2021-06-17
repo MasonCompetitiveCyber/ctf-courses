@@ -10,6 +10,7 @@
 - [Bit Planes](#image-bit-planes)
 - [XOR](#image-xor)
 - [Files Within Files](#files-within-files)
+- [Steghide](#steghide)
 - [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
@@ -222,7 +223,7 @@ Before attempting to extract anything, I like have `steghide` attempt to display
 
 Let's look at [steghidden.jpeg](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/steghidden.jpeg):
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/steghidden.jpeg" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG 200/steghidden.jpeg" width=30%  height=30%></p>
 
 Let's use the `steghide` `info` function to try and see if there is an embedded file.
 
@@ -297,3 +298,18 @@ Successfully cracked in 961.31s
 ```
 
 After about 80,999 password attempts and 16 minutes, it finally cracked it! Allocating more than 10 threads will probably speed up the process some, but it will still be a pretty slow process. Unless you're confident that the steg challenge wants you to use steghide to find a hidden file/brute force steghide, this may not be the way.
+
+## Practice:
+- TCTF: TODO
+- picoCTF: TODO
+- TryHackMe: TODO
+
+## More Resources:
+- https://en.wikipedia.org/wiki/Bit_plane
+- http://40two.info/barge/image_processing/Intro/PDF/Lookup_Tables.pdf
+
+## Creators
+
+**Daniel Getter**
+
+Enjoy :metal:
