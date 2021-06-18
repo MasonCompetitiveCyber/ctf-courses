@@ -10,7 +10,7 @@
 - [Image Steg](#image-steg)
 	- [Metadata](#metadata)
 	- [Hidden In Raw Data](#hidden-in-raw-data)
-	- [LSB](#image-manipulation)
+	- [LSB](#least-significant-bit)
 - [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
@@ -22,7 +22,8 @@ Steganography is the art of concealing information within something inocuous, so
 The communication of secret information has been around for as long as humanity, and the methods of doing so have been constantly evolving. Usually, one would think of the transmission of secrets as a verbal act, such as whispering into a confidant’s ear or making sure you are alone before telling your secrets. But what if the two people can not be in close physical proximity? To address this issue, two main solutions were created: cryptography and steganography. The difference between them is that cryptography aims at concealing the *meaning* of a message while steganography aims to hide the *existence* of the message itself. To demonstrate this, let us use the secret message *`attack at dawn.`* One simple method of cryptography is called the Caesar Cipher, which takes a letter and shifts it down the alphabet a certain amount. If we set the shift at 13 letters, `“a”` becomes `“n”`, `“b”` becomes `“o”`, and so on. If we do this to every letter in our secret message, *`attack at dawn`* becomes *`nggnpx ng qnja`* As we can see, the meaning of the initial message has been concealed (only to a certain degree, as it can be deciphered), but not the existence of the message itself. If we want to conceal the *existence* of this message, we would use methods of steganography, such invisible ink. If we write *`attack at dawn`* with invisible ink on some document and someone intercepts it, they will not know that the document contains some sort of secret message. If the message gets to the intended receiver, they would know they must heat the paper to reveal the secret message written in invisible ink.
 
 The word “steganography” comes from the Greek roots “steganos” and “-graphy” which together mean “covered writing.” Some of the oldest forms of steganography date back to the Greeks and Spartans, such as tattooing a message on a slave’s head and waiting for their hair to grow back or covering a message with a fresh layer of wax. As technology improved, so did the methods of concealing information, which we will discuss in this course. 
-<br><br>
+
+- - -
 #### `./types-of-steganography`
 
 There are several types of steganography, which are usually sorted by the medium in which the secret information is concealed. The main types of steganography are:
@@ -46,7 +47,7 @@ Text steganography is not the most common, so you will probably won't see it tha
 ## Image Steg
 
 Image steganography deals with hiding information inside of an image, which is known as the "cover image." This is one of the most popular forms of steganography, especially in CTFs. CTFs generally use the following methods of concealing information within an image: hiding it in the metadata, hiding it in the raw data, using image/pixel manipulation techniques (such as least-significant bit steganography), and embedding files within the main file (this is not only specific to images, however).
-
+- - -
 #### `./metadata`
 Starting off super easy; hiding information in the metadata of an image. Metadata is an set of data desciribing important aspects of the image, such as copyright information, file statistics, descriptions, and other things such as GPS location data of where the image was taken, camera information, and so on (all of these are optional, you can remove all metadata from an image if you want to). On linux, there is a command-line tool called `exiftool` which can be used to inspect the metadata of files. You can follow along by using the `exif-raw-example.jpeg` file.
 
@@ -83,7 +84,7 @@ Image Width                     : 4032
 Image Height                    : 3024
 ...
 ```
-
+- - -
 #### `./hidden-in-raw-data`
 If you want to look at the raw data of a file, the best way is through a tool that outputs the binary in hexadecimal representation such as `xxd` on linux. Here is some example output: 
 ```console
@@ -147,8 +148,8 @@ flag{n0t_sus}
 ```
 
 `strings` will return any **printable** strings within a given file, which is helpful in trying to find a flag string hidden in file's data. This is an incredibly useful tool in reverse engineering as well for this very reason. 
-
-#### `./image-manipulation`
+- - - 
+#### `./least-significant-bit`
 The next level up in difficulty for image steganography involes the actual manipulation of the image itself. By this I mean changing the values of pixels in a certain way to encode information. One popular way is called **least-significant bit steganography** -- LSB for short.
 
 Images, as with all data, are really just a collection of bits -- 1s and 0s. Eight of these bits comprise a byte, which in the case of a simple RGB image, will represent a color, either red, green, or blue (as you can see in the image below). The bit on the right end of a byte is called the least significant bit because it represents the smallest value, a change of 1 (circled on the image in brown). This is the exact premise that LSB steganography makes use of when attempting to hide information in images. If you can change the least significant bit of each byte of data without altering the overall data to a noticeable amount, then you can successfully hide information without getting noticed. 
@@ -198,6 +199,12 @@ There is also:
 - http://icyberchef.com/#recipe=Extract_LSB('R','G','B','','Row',0)
 - https://github.com/ragibson/Steganography#LSBSteg
 - many, many more -- google is your friend!
+
+Another way to learn is to write a program that actually does the LSB encoding and decoding. That's how I first got the hang of how it works. You can check out the code I had written while trying to learn here: https://github.com/NihilistPenguin/LSBstego. Please feel free to improve it, as it lacks normal functionality. Here are a few things you can do:
+- make it so you can encode the secret message bits on more than the first row, aka as much of the image space it needs to take up
+- allow encoding another image, so turn an image into bytes, encode it, then decode it, and re-create the image agian
+
+I'm sure you can even clean up the main code as well with some super efficient python magic. Getting hands on and scripting things just for the heck of it will benefit you in the long run. 
 
 
 ## Practice:
