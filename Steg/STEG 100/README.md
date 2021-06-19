@@ -1,6 +1,6 @@
 <h1 align="center">STEG 100</h1>
   <p align="center">
-     Introduction to Steganography
+     Introduction to Image Steganography
   </p>
 
 ### Table of contents
