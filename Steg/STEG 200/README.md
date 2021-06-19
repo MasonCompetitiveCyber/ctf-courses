@@ -15,10 +15,10 @@
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
-# Introduction
+## Introduction
 In this course, we will continue talking about methods of image steganography, including methods such as LUT manipulation, bit planes, XOR, and embedded files. There are almost an infinite amount of ways to hide information, so it's not feasible to go through all of them, but at least these should cover basic CTF steg problems.
 
-# Image LUT
+## Image LUT
 LUT stands for Lookup Table, which produce color images by mapping numbers to colors. LUT's are used for creating N-bit color images and color correcting. Unlike RGB color images that use bytes to code for RGB values for color, images like 8-bit color images will use an LUT. Here's an image to show how it works:
 
 <p align="center">
@@ -58,7 +58,7 @@ This is just one simple (and somewhat rare) method of hiding information in an i
 p.s. The tool `stegsolve` will be introduced in the next section, which has the functionality to set a random color map for an image. It will also make the secret message visible. You can try it out yourself. 
 
 
-# Image Bit Planes
+## Image Bit Planes
 Hiding images in specific bit planes is a popular method of steganography. This method is very similar to LSB steg, in that it manipulates the values of the actual bits of a pixel. Each bit in an RGB byte is a part of a bit plane. The LSB would be bit plane 0. The next bit would be bit plane 1, and so on. This means that LSB steg is really just using getting information from one specific bit plane. Here is a visualization of the 8 bit planes in a greyscale image:
 
 <p align="center">
@@ -93,7 +93,7 @@ But if we look at red bit plane 1, we see the flag!
 
 <p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/red-1-flag.png" width=40%  height=40%></p>
 
-# Image XOR
+## Image XOR
 Another method of hiding images in other images is performing a logic operation between the bits of the two images, such as an XOR (exclusive or). If you already know about XOR, feel free to skip this and the next paragraph. XOR (symbol is ⊕) compares two bits and returns `0` if they are equal and `1` if they are not. Here is a basic table to show this logic:
 
 | x | y | x ⊕ y |
@@ -140,7 +140,7 @@ chmod +x magic
     <em>secret image</em>
 </p>
 
-# Files Within Files
+## Files Within Files
 One popular method of hiding files is embedding them entirely within another. This topic overlaps heavily with that of forensics, so I will not be going over how it works here. You should head over to Forensics 100 to learn about it. I am only including this topic within Steganography because it is a popular steg challenge type.
 
 To check if a file has any files embedded within it, you can use the linux tool `binwalk`. For example, let's say we're given [fileception-cover.png](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Steg/STEG%20200/fileception-cover.png) 
@@ -207,7 +207,7 @@ Opening those two images, we see that `00000659.png` contains a secret message:
 
 If you are interested in learning more about how this works and other use-cases, please head over to Forensics 100 which will be covering file carving and binwalk in more depth.
 
-# Steghide
+## Steghide
 Finally, I will talk about one of the most common tools in steganography challenges, `steghide`. You can read how the tool works on their [manpage](http://steghide.sourceforge.net/documentation/manpage.php) since it's quite involved. All you really have to know is how to use it.
 
 First thing to keep in mind is its supported file formats: `JPEG`, `BMP`, `WAV` and `AU`. This means that if you're solving a challenge and it isn't one of these file formats, you can elimitate this as a possible way to solve it.

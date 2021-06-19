@@ -15,7 +15,7 @@
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
-# Introduction
+## Introduction
 #### `./background`
 Steganography is the art of concealing information within something inocuous, so those who are not meant to see it would not know it is even there. 
 
@@ -35,7 +35,7 @@ There are several types of steganography, which are usually sorted by the medium
 
 Image steg involves hiding information inside of another image, known as the "cover image." Text steg involves hiding informatin within a text file or some other body of text. Video and image steg are self-explanatory. Finally, network steg, also known as "protocol steganography", involves hiding information within network traffic.  We will discuss the basics of each type of steganography in this course.
 
-# Text Steg
+## Text Steg
 
 Text steganography is aimed at hiding a message within another body of text. There are three main categories: format-based, random and statistical generation, and linguistic steganography. We will discuss only format-based text steg, as the other two are a bit out of scope for this course. Format-based text steg modifies existing text with the insertion of spaces, misspellings, punctuation, and font changes. An example of this is inserting an extra space to represent the binary digit “0” and two extra spaces to represent the binary digit “1” into some body of text. Let us take a look at the following piece of text (extra spaces are replaced with a `+` for readability):<br><br>
 **`This +is a ++normal ++message. ++Nothing +to +see ++here ++.`**<br><br>
