@@ -65,11 +65,11 @@ Let's say we were given [spectrogram.wav](https://github.com/MasonCompetitiveCyb
 
 If we want to try to view it in `Sonic Visualizer`, we have to open the file, then `pane > add spectrogram`. We see the flag!
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/sonic-visualizer.png" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/sonic-visualizer.png" width=50%  height=50%></p>
 
 If we want to view it in `Audacity`, we open the file, "open menu" with `Shift+M` and then click `Spectrogram`. By default it will only show frequencies up to 8kHz but we can change that. Either `open menu > spectrogram settings > increase the "Max Frequency"` or right click on the y-axis panel showing the frequencies and click `Zoom to Fit`. We see the flag!
 
-<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/audacity.png" width=40%  height=40%></p>
+<p align="center"><img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/steg/audacity.png" width=80%  height=80%></p>
 
 (If your spectrogram looks different, aka red and hard to read, it's because I highlighted the audio track which makes it easier to read)
 
