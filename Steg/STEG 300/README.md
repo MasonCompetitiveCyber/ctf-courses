@@ -16,7 +16,7 @@
 ## Introduction
 This will be a pretty short course because there is not too many unique aspects of audio steg when compared to image steg. The two topics we will cover are LSB steg in audio files and encoding secret images in audio spectrograms
 
-#3 Audio LSB
+## Audio LSB
 Audio LSB steg is basically the same thing as LSB steg with images. You just replace the least-significant bit of each byte of data with your own. One nice tool that can do this for us is [WavSteg](https://github.com/ragibson/Steganography#WavSteg). You can also implement this using python, such as this code from @reachsumit: [sender.py](https://gist.github.com/reachsumit/5376441d341bb5c8b361a2f3e0798993) and [receiver.py](https://gist.github.com/reachsumit/583c76ffd740e1a952d65da3c676931f).
 
 For our purposes, let's use [WavSteg](https://github.com/ragibson/Steganography#WavSteg). 
