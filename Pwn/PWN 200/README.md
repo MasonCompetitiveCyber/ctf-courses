@@ -10,7 +10,6 @@
 - [Crashing the Program](#crashing-the-program)
 - [Controlling the Return Address](#controlling-the-return-address)
 - [Returning to Another Function](#returning-to-another-function)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -459,9 +458,6 @@ Wow the buffer overflow worked!!!
 ```
 
 Congratulations! You have successfully conducted your first buffer overflow! Not only were you able to bypass the login system for this program, but you were also able to spawn a shell that gave you complete control over the system!
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 - [Smashing The Stack For Fun And Profit](http://phrack.org/issues/49/14.html)

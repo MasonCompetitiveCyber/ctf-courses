@@ -10,7 +10,6 @@
 - [Offsets](#offsets)
 - [Buffer Overflow Without ASLR](#buffer-overflow-without-aslr)
 - [Bypassing ASLR](#bypassing-aslr)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -349,9 +348,6 @@ Buffer overflow: $ $ echo "Worked with ASLR!"
 Worked with ASLR!
 $ $ 
 ```
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 

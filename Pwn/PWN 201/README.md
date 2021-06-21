@@ -9,7 +9,6 @@
 - [Controlling RIP](#controlling-rip)
 - [Executing Shellcode](#executing-shellcode)
 - [Fixing Our Shellcode](#fixing-our-shellcode)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -521,9 +520,6 @@ $
 ```
 
 Unfortunately, the exploit is unlikely to work outside of GDB because stack addresses are usually different outside of GDB. GDB tends to add extra parameters to the stack for some reason, which causes the stack addresses to be different than if you had executed the program outside of GDB. Our exploit had relied on a hardcoded address that only worked inside of GDB, but we'll get into how we can make our exploits work without using hardcoded memory addresses when we discuss bypassing ASLR.
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 - [Smashing The Stack For Fun And Profit](http://phrack.org/issues/49/14.html)

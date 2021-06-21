@@ -8,7 +8,6 @@
 - [Introduction](#introduction)
 - [Integer Limits](#integer-limits)
 - [Integer Overflows](#integer-overflows)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -149,9 +148,6 @@ You currently have $4294967295 in your bank account.
 Congratulations! You're rich!
 ```
 In CTFs, it is common to see binaries where there are mathematical issues such as the ones shown above. You should keep this in mind whenever you're solving a CTF challenge that involves some kind of math, especially if both signed and unsigned numbers are being used. There are tools out there such as [Z3 Theorem Prover](https://wiki.bi0s.in/reversing/analysis/dynamic/linux/z3/) that can help you find mathematical issues like integer overflows.
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 - [Two's Complement](https://www.tutorialspoint.com/two-s-complement)

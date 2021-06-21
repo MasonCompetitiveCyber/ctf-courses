@@ -11,7 +11,6 @@
 - [Finding The Offset](#finding-the-offset)
 - [Reading The Address](#reading-the-address)
 - [Scripting Buffer Overflows](#scripting-buffer-overflows)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -365,9 +364,6 @@ $ $
 ```
 
 Note that sometimes pwntools has this annoying glitch where the shell icon ($) is printed out twice, but you can just ignore it if that happens to you. The buffer overflow works regardless.
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 - [Pwntools Documentation](https://docs.pwntools.com/en/stable/index.html)

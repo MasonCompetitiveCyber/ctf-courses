@@ -9,7 +9,6 @@
 - [Format Specifiers](#format-specifiers)
 - [Leaking Memory](#leaking-memory)
 - [Modifying Variables](#modifying-variables)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -292,9 +291,6 @@ You currently have $1066.
 You're swimming in cash!
 $
 ```
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 - [Format Specifiers in C](https://www.tutorialspoint.com/format-specifiers-in-c)

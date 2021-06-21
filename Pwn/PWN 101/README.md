@@ -12,7 +12,6 @@
 - [Removing NULLs](#removing-nulls)
 - [Manipulating STDIN](#manipulating-stdin)
 - [Final Shell](#final-shell)
-- [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -372,9 +371,6 @@ Here is our final shellcode. Take a note of this string; you'll need to use this
 $ for i in $(objdump -m i386:x86-64 -D final_shell |grep "^ " |cut -f2); do printf $i; done; echo
 4831c04831ffb0030f055048bf2f6465762f74747957545f505e66be0227b0020f054831c0b03b4831db53bb6e2f736848c1e31066bb626948c1e310b72f534889e74883c7014831f64831d20f05
 ```
-
-## Practice:
-- TODO: Get a TCTF challenge here.
 
 ## More Resources:
 - [Assembly Programming Tutorials](https://www.tutorialspoint.com/assembly_programming/index.htm)
