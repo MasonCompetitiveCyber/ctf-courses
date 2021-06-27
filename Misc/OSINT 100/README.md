@@ -28,14 +28,14 @@ I don't really have any OSINT challenges on hand to show (other than ones from C
     - Example challenge: What is this building?
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/OSINT%20100/google-lens-chal.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/OSINT%20100/google-lens-chal.png" width=60%  height=60%><br>
     <em>google-lens-chal.png</em>
 </p>
 
 Now just pull up Google Lens on your phone and take a picture of the image. It may take a little finagling before it finally recognizes it.
 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/osint/google-lens-screenshot.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/osint/google-lens-screenshot.png" width=25%  height=25%><br>
     <em>screenshot of me using google lens to solve this challenge</em>
 </p>
 
