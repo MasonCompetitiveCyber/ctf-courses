@@ -21,7 +21,7 @@ In this course you will learn the basics of local scripting in bash and python. 
 Now that I've told you the general description, we will kind of disregard that definition for our purposes. In my eyes, scripting is using a programming language to quickly solve a problem or automate a task. If, for some reason, I decide it is easier to write a short program in C to solve a problem or challenge, I still think it's considered scripting even though C is a compiled language. But that's just my opinion, I don't really care for the semantics. 
 
 ## Bash Scripting
-- - -
+
 ### Basics
 One very useful skill to have when working in linux is bash scripting. Even super simple bash scripts can make your life much easier. A bash script is really just a collection of bash commands written out in a plain text file, conventionally given a `.sh` extensino. These commands are anything you can run normally in the command line, such as `ls`, `cp`, etc. 
 
@@ -41,7 +41,7 @@ The first step to running a bash script is to set its file permissions to allow 
 ### Creating Our First Bash Script: Network Ping Scan
 I find the best way to learn new things is to do something hands-on, so let's create our first simple bash script. The goal of this script is to take in some user input for a network address, and given that, send a ping to all possible hosts on that network to see if they are up. 
 
-**If/Else**<br>
+#### If/Else
 The first thing we'll want to do is check if the user actually supplied any input. This means we have to start with an If/Else statement. The general format of an if/else statement in bash is:
 ```bash
 if [[ some condition ]]
@@ -53,7 +53,7 @@ fi
 ```
 *p.s. there is a differnece between using [ ] and [[ ]] for the conditional statement which I barely know and won't go into here, so you can google it if you want.*
 
-**Variables**<br>
+#### Variables
 Now that we know the general structure of an if/else, we have to create the conditional statement to check if the user provided some command line argument as input. Bash stores command line arguments in variables denoted by `$1` for the first argument, `$2` for the second, and so on. If the user only needs to supply one argument, we should just check if `$1` is anything but empty. If it's empty, we should tell the user that they need to supply a network address and quit the program. Let's try putting some of this together.
 
 ```bash
@@ -80,10 +80,8 @@ Placeholder for running the rest of our program
 
 Perfect!
 
-**For loops**<br>
-Our next task will require using a loop to iterate over all numbers between 1 and 254. To do this, we can use a for loop.
-
-Basic for loop syntax looks like this:
+#### For Loops
+Our next task will require using a loop to iterate over all numbers between 1 and 254. To do this, we can use a for loop. Basic for loop syntax looks like this:
 
 ```bash
 for <item> in <list>
@@ -112,7 +110,7 @@ done
 ```
 In the above code, the for loop will iterate over every number in the sequence and assign it to a variable `ip`. We can then reference that variable inside of the `do` section of the for loop. Now we have enough knowledge to finish the script.
 
-**Bringing it all together**<br>
+#### Bringing It All Together
 Here is the final script:
 ```bash
 #!/bin/bash
