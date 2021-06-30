@@ -1,28 +1,31 @@
 <h1 align="center">SCRIPT 100</h1>
   <p align="center">
-     Basics of Local Bash and Python Scripting
+     Bash Scripting
   </p>
 
 ### Table of contents
 
 - [Prerequisites](#prerequisites)
 - [Introduction](#introduction)
-- [Bash Scripting](#bash-scripting)
+- [Basics](#basics)
+- [Creating Our First Bash Script: Network Ping Scan](#creating-our-first-bash-script-network-ping-scan)
+    - [If/Else](#ifelse)
+    - [Variables](#variables)
+    - [For Loops](#for-loops)
+    - [Bringing It All Together](#bringing-it-all-together)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
 ## Prerequisites
 - Linux 100, 200, 300
-    - You should be comfortable on a linux CLI and with linux commands
+    - You should be comfortable with the linux CLI and with linux commands
 
 ## Introduction
 In this course you will learn the basics of local scripting in bash and python. *Local* just means that we are not interacting with remote endpoints, which will be discussed in the next course, SCRIPT 200. Knowing scripting is extremely useful as it will allow you to quickly solve problems and automate solutions using code. Know, you might be wondering what scripting even means, and how is it different than programming? Well, here is a widely accepted distinction: *"all scripting languages are programming languages, but the theoretical difference between the two is that scripting languages do not require the compilation step and are rather interpreted. For example, normally, a C program needs to be compiled before running whereas normally, a scripting language like JavaScript, PHP, or Python need not be compiled."* (https://www.geeksforgeeks.org/whats-the-difference-between-scripting-and-programming-languages/). If you don't know what a compiled or interpreted language is, you can read some more about them [here](https://www.geeksforgeeks.org/difference-between-compiled-and-interpreted-language/) and [here](https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/). 
 
 Now that I've told you the general description, we will kind of disregard that definition for our purposes. In my eyes, scripting is using a programming language to quickly solve a problem or automate a task. If, for some reason, I decide it is easier to write a short program in C to solve a problem or challenge, I still think it's considered scripting even though C is a compiled language. But that's just my opinion, I don't really care for the semantics. 
 
-## Bash Scripting
-
-### Basics
+## Basics
 One very useful skill to have when working in linux is bash scripting. Even super simple bash scripts can make your life much easier. A bash script is really just a collection of bash commands written out in a plain text file, conventionally given a `.sh` extensino. These commands are anything you can run normally in the command line, such as `ls`, `cp`, etc. 
 
 I'll start with a practical example. In my kali vm, I often find myself needing to fix a weird resolution bug to set it back to 1920x1080. I had found a solution online that required running 3 bash commands which worked well for me. Instead of writing those commands down somewhere and re-typing them out every time I had to fix the resolution bug, I could just put them in a bash script. Let's take a look:
@@ -38,10 +41,10 @@ Let's break this down. First, we see the top line contains `#!/bin/bash`. The `#
 
 The first step to running a bash script is to set its file permissions to allow file execution. This can be done with a `chmod +x your_file.sh`. Next, you need to run the bash script like so: `./your_file.sh`. The `./` just denotes the file path of your bash script, which is the one you're in after you just made the bash script. If you're in another directory, you'd have to replace `./` with the file path to your bash script. 
 
-### Creating Our First Bash Script: Network Ping Scan
+## Creating Our First Bash Script: Network Ping Scan
 I find the best way to learn new things is to do something hands-on, so let's create our first simple bash script. The goal of this script is to take in some user input for a network address, and given that, send a ping to all possible hosts on that network to see if they are up. 
 
-#### If/Else
+### If/Else
 The first thing we'll want to do is check if the user actually supplied any input. This means we have to start with an If/Else statement. The general format of an if/else statement in bash is:
 ```bash
 if [[ some condition ]]
@@ -53,7 +56,7 @@ fi
 ```
 *p.s. there is a differnece between using [ ] and [[ ]] for the conditional statement which I barely know and won't go into here, so you can google it if you want.*
 
-#### Variables
+### Variables
 Now that we know the general structure of an if/else, we have to create the conditional statement to check if the user provided some command line argument as input. Bash stores command line arguments in variables denoted by `$1` for the first argument, `$2` for the second, and so on. If the user only needs to supply one argument, we should just check if `$1` is anything but empty. If it's empty, we should tell the user that they need to supply a network address and quit the program. Let's try putting some of this together.
 
 ```bash
@@ -80,7 +83,7 @@ Placeholder for running the rest of our program
 
 Perfect!
 
-#### For Loops
+### For Loops
 Our next task will require using a loop to iterate over all numbers between 1 and 254. To do this, we can use a for loop. Basic for loop syntax looks like this:
 
 ```bash
@@ -110,7 +113,7 @@ done
 ```
 In the above code, the for loop will iterate over every number in the sequence and assign it to a variable `ip`. We can then reference that variable inside of the `do` section of the for loop. Now we have enough knowledge to finish the script.
 
-#### Bringing It All Together
+### Bringing It All Together
 Here is the final script:
 ```bash
 #!/bin/bash
