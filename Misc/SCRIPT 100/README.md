@@ -13,6 +13,8 @@
     - [Variables](#variables)
     - [For Loops](#for-loops)
     - [Bringing It All Together](#bringing-it-all-together)
+- [Use Cases](#use-cases)
+- [Next Steps](#next-steps)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -158,6 +160,20 @@ $ ./pingscan.sh 192.168.18
 
 This output tells me that there are two hosts accepting ping requests, 192.168.18.2 and 192.168.18.128. This makes sense for me because 192.168.18.128 is my localhost address and 192.168.18.2 is the gateway. Awesome!
 
+## Use Cases
+I find bash scripting the most useful when I find the easiest solution is through a variety of linux/bash commands. As we saw with the long command used in the ping scanner (`ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" &`), these commands can be very powerful when used together. We will see in the next course that Python is super great to use in most situations when scripting, but bash scripts tend to be the better option when needing to utilize the power of linux commands. For example, if I'm dealing with some command output and only want a specific column, it's super easy to use `cut` or `awk` to pull it out, so I find myself using bash scripting to quickly filter the data I'm working with and then do the rest in python.
+
+## Next Steps
+This was quite a short course, but understanding just the basics of bash scripting can cover most of the cases you might use it for. If you are interested in teaching yourself more and getting more comfortable with it, it would definitely be beneficial (I keep telling myself I will, but never do). One great way to try and expand your skills and comfort is to take the ping scanner we just made and improve it. At its current state, it is quite rudementary. Here's what you can do:
+
+- allow the user to input a network address with a specific subnet or range of addresses
+- use another method for getting a sequence of numbers, such as `{1..254}`
+- use a while loop instead of a for loop
+- add descriptive text to the output
+- use a function to run the ping command and call that function within a loop
+- output the results to a file instead of stdout
+- set a variable to "64 bytes" and use the variable with grep instead of the string
+- whatever else your heart desires
 
 ## More Resources
 - https://ryanstutorials.net/bash-scripting-tutorial/
