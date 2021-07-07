@@ -23,10 +23,10 @@
 
 ## Prerequisites
 - Scripting 200
-    - You should be comfortable with basic pythong programming (if/else, loops, functions)
+    - You should be comfortable with basic python programming (if/else, loops, functions)
 
 ## Introduction
-This course will teach you useful Python libraries and interacting with sockets/remote connections. A lot of CTF challenges will require you to be comfortable with Python scripting to automate some method of solving or brute-forcing the flag, so I recommend to continuosly try and improve your skillset. This can take the form of scripting something in python even if it's not really necessary. The more hands-on time you can put into it, the more comfortable and efficient you will become.
+This course will teach you useful and powerful Python built-in functions. A lot of CTF challenges will require you to be comfortable with Python scripting to automate some method of solving or brute-forcing the flag, so I recommend to continuosly try and improve your skillset. This can take the form of scripting something in python even if it's not really necessary. The more hands-on time you can put into it, the more comfortable and efficient you will become.
 
 ## Useful Functions
 This section will walk you through various Python functions that should help you in CTF challenges and/or just speed up your python scripting process.
