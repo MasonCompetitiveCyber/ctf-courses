@@ -15,6 +15,9 @@
   - [binascii](#binascii)
   - [`bytes.hex()` and `bytes.fromhex()`](#byteshex-and-bytesfromhex)
 - [Example CTF Problem](#example-ctf-problem)
+- [Next Steps](#next-steps)
+- [More Resources](#more-resources)
+- [Creators](#creators)
 
 ## Prerequisites
 - Scripting 200
@@ -210,7 +213,7 @@ flag = "".join(characters)
  
 print(flag)
 ```
-We start by opening the file and using `rb` to read the content of the file in bytes. We then take those bytes and convert them to hex, which should turn them into the `0a`'s and `0d`'s we saw from the hexdump. We can then replace the `0a` with a 0 and the `0d` with a 1 (this is just a guess for now, we can switch them if it doesn't work out). Once we have our 1s and 0s, we need to convert that to normal ascii text, which we do in the for loop. For every 8 bits, we convert the byte into an integer, then that integer into a character, and append it to a list. Finally we join the list and print out our result. Here's the output to the script:
+We start by opening the file and using `rb` to read the content of the file in bytes. We then take those bytes and convert them to hex, which should turn them into the `0a`'s and `0d`'s we saw from the hexdump. We can then replace the `0a` with a 0 and the `0d` with a 1 (this is just a guess for now, we can switch them if it doesn't work out). Once we have our 1s and 0s, we need to convert that to normal ascii text, which we do in the for loop. For every 8 bits, we convert the byte into an integer, then that integer into a character, and append it to a list. Finally we join the list and print out our result. Here's the output to the script [solve.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/solve.py):
 ```console
 $ python3 solve.py
 Content: b'\n\r\r\n\n\r\r\n\n\r\r\n\r\r\n\n\n\r\r\n\n\n\n\r\n\r\r\n\n\r\r\r\n\r\r\r\r\n\r\r\n\r\r\n\r\n\n\n\n\r\r\n\n\n\n\r\n\r\r\n\r\r\n\n\n\r\r\n\n\r\r\n\n\r\n\r\r\r\r\r\n\r\r\n\n\n\n\r\n\r\n\r\r\r\r\r\n\r\r\n\n\n\r\n\n\r\r\r\r\n\n\r\n\r\r\r\n\r\n\n\n\r\r\n\n\r\n\r\n\r\n\r\r\r\r\r\n\r\r\n\r\n\n\r\n\r\r\r\n\n\r\r\n\r\n\r\r\r\r\r\n\r\r\n\n\n\r\r\n\r\r\n\n\n\n\r\n\r\r\n\r\r\n\n\n\r\r\n\r\r\n\n\n\r\r\n\n\r\n\r\n\r\r\n\n\r\n\n\n\r\n\r\r\r\r\r\n\r\r\n\n\n\n\r\n\r\n\r\r\r\r\r\n\r\r\n\r\r\r\n\n\r\r\n\r\n\n\r\n\r\r\n\n\n\r\n\n\r\r\n\n\n\r\n\n\r\r\n\r\r\n\n\n\r\r\n\n\r\n\r\n\r\r\r\r\r\n\r'
@@ -224,3 +227,21 @@ List of characters: ['f', 'l', 'a', 'g', '{', 'h', 'a', 'l', 'f', '_', 'a', '_',
 flag{half_a_byte_is_called_a_nibble}
 ```
 Hopefully that output helps you visualize each step of the process. You might notice the "Content" output is all `\n` and `\r`. `\n` is the newline character and `\r` is the carriage return. Anyways, we got the flag, yay!
+
+*CTF challenge based off of RADAR CTF 2019 – Blanks, with writeup from https://ironhackers.es/en/writeups/resolviendo-retos-de-ctf-parte-1/*
+
+*p.s. You can use online tools to help with conversions too, like https://www.rapidtables.com/convert/number/binary-to-ascii.html to convert the binary to ascii*
+
+## Next Steps
+ - make [solve.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/solve.py) in less lines of code (using string comprehension and stuff)
+- create the inverse of [solve.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/solve.py), a.k.a a script that creates and empty looking file from a string 
+
+## More Resources
+- https://www.kite.com/python/docs/binascii.hexlify
+- https://stackoverflow.com/questions/6624453/whats-the-correct-way-to-convert-bytes-to-a-hex-string-in-python-3
+
+## Creators
+
+**Daniel Getter**
+
+Enjoy :metal:
