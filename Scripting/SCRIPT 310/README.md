@@ -53,7 +53,7 @@ One quick example of where you could use this is to clean some data. Let's say w
 ```
 t!"he#$ b%&ee'( o)*f +,co-.ur/:se;< f=>li?@es[\ a]^ny_`wa{|y }~be!"ca#$us%&e '(be)*es+, d-.on/:t ;<ca=>re?@ w[\ha]^t _`hu{|ma}~ns!" t#$hi%&nk'( i)*s +,im-.po/:ss;<ib=>le?@
 ```
-If we wanted to get rid of all of the special characters/punctuation, we could do so with the following script ([clean.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/clean.py)):
+If we wanted to get rid of all of the special characters/punctuation, we could do so with the following script ([clean.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20310/clean.py)):
 ```python
 import string
 
@@ -160,7 +160,7 @@ b'Barry! Breakfast is ready!'
 Notice that there is a slight difference, `bytes.hex()` outputs a string and not a bytes object like `binascii.hexlify()`. 
 
 ## Example CTF Problem
-Let's say we are given the following file [flag.txt](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/flag.txt). If you open it, it looks completely empty. Let's use a linux tool called `hexdump` to see the raw data:
+Let's say we are given the following file [flag.txt]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20310/flag.txt). If you open it, it looks completely empty. Let's use a linux tool called `hexdump` to see the raw data:
 ```console
 $ hexdump flag.txt  
 0000000 0d0a 0a0d 0d0a 0a0d 0d0a 0a0d 0d0d 0a0a
@@ -213,7 +213,7 @@ flag = "".join(characters)
  
 print(flag)
 ```
-We start by opening the file and using `rb` to read the content of the file in bytes. We then take those bytes and convert them to hex, which should turn them into the `0a`'s and `0d`'s we saw from the hexdump. We can then replace the `0a` with a 0 and the `0d` with a 1 (this is just a guess for now, we can switch them if it doesn't work out). Once we have our 1s and 0s, we need to convert that to normal ascii text, which we do in the for loop. For every 8 bits, we convert the byte into an integer, then that integer into a character, and append it to a list. Finally we join the list and print out our result. Here's the output to the script [solve.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/solve.py):
+We start by opening the file and using `rb` to read the content of the file in bytes. We then take those bytes and convert them to hex, which should turn them into the `0a`'s and `0d`'s we saw from the hexdump. We can then replace the `0a` with a 0 and the `0d` with a 1 (this is just a guess for now, we can switch them if it doesn't work out). Once we have our 1s and 0s, we need to convert that to normal ascii text, which we do in the for loop. For every 8 bits, we convert the byte into an integer, then that integer into a character, and append it to a list. Finally we join the list and print out our result. Here's the output to the script [solve.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20310/solve.py):
 ```console
 $ python3 solve.py
 Content: b'\n\r\r\n\n\r\r\n\n\r\r\n\r\r\n\n\n\r\r\n\n\n\n\r\n\r\r\n\n\r\r\r\n\r\r\r\r\n\r\r\n\r\r\n\r\n\n\n\n\r\r\n\n\n\n\r\n\r\r\n\r\r\n\n\n\r\r\n\n\r\r\n\n\r\n\r\r\r\r\r\n\r\r\n\n\n\n\r\n\r\n\r\r\r\r\r\n\r\r\n\n\n\r\n\n\r\r\r\r\n\n\r\n\r\r\r\n\r\n\n\n\r\r\n\n\r\n\r\n\r\n\r\r\r\r\r\n\r\r\n\r\n\n\r\n\r\r\r\n\n\r\r\n\r\n\r\r\r\r\r\n\r\r\n\n\n\r\r\n\r\r\n\n\n\n\r\n\r\r\n\r\r\n\n\n\r\r\n\r\r\n\n\n\r\r\n\n\r\n\r\n\r\r\n\n\r\n\n\n\r\n\r\r\r\r\r\n\r\r\n\n\n\n\r\n\r\n\r\r\r\r\r\n\r\r\n\r\r\r\n\n\r\r\n\r\n\n\r\n\r\r\n\n\n\r\n\n\r\r\n\n\n\r\n\n\r\r\n\r\r\n\n\n\r\r\n\n\r\n\r\n\r\r\r\r\r\n\r'
@@ -233,8 +233,8 @@ Hopefully that output helps you visualize each step of the process. You might no
 *p.s. You can use online tools to help with conversions too, like https://www.rapidtables.com/convert/number/binary-to-ascii.html to convert the binary to ascii*
 
 ## Next Steps
- - make [solve.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/solve.py) in less lines of code (using string comprehension and stuff)
-- create the inverse of [solve.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20310/solve.py), a.k.a a script that creates and empty looking file from a string 
+ - make [solve.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20310/solve.py) in less lines of code (using string comprehension and stuff)
+- create the inverse of [solve.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20310/solve.py), a.k.a a script that creates and empty looking file from a string 
 
 ## More Resources
 - https://www.kite.com/python/docs/binascii.hexlify

@@ -107,7 +107,7 @@ o
 >>> print(next(vowels_iter))
 u
 ```
-You might think to yourself that you could just use a loop to iterate over a list and do the same thing, and you would be right, in this case. However, there are valuable use cases for using `next()`. Let's look at some code I wrote as an example ([next.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20300/next.py)):
+You might think to yourself that you could just use a loop to iterate over a list and do the same thing, and you would be right, in this case. However, there are valuable use cases for using `next()`. Let's look at some code I wrote as an example ([next.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20300/next.py)):
 ```python
 message = "there is no way that a bee should be able to fly"
 
@@ -274,7 +274,7 @@ These functions are helpful in turning a character into its integer representati
 ```
 
 ### `map()`
-`map()` takes an iterable object and applies a given function to each item. It returns a *map* object, but it can be converted to a list with `list()`. Let's say we want to perform a simple operation on every item in a list, such as shifting every letter of a sentence by 3 letter (a -> d, z -> c). Instead of looping through every letter in the sentence, shifting it, and appending it to a list, we can do all of that with `map()`, like so ([shift.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20300/shift.py)):
+`map()` takes an iterable object and applies a given function to each item. It returns a *map* object, but it can be converted to a list with `list()`. Let's say we want to perform a simple operation on every item in a list, such as shifting every letter of a sentence by 3 letter (a -> d, z -> c). Instead of looping through every letter in the sentence, shifting it, and appending it to a list, we can do all of that with `map()`, like so ([shift.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20300/shift.py)):
 ```python
 letters = list("its wings are too small to get its fat little body off the ground")
 
@@ -353,9 +353,9 @@ output: lwv zlqjv duh wrr vpdoo wr jhw lwv idw olwwoh ergb rii wkh jurxqg
 We can see we define the a lambda function inside of map where you would usually pass in the name of a fucntion, such as our `shift()` function from before. It might still be easier and definitely more readable to use a normal function in this case, but you should nonetheless know about it, as it may come in handy in your future. 
 
 ## Next Steps
- - find ways to improve [next.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20300/next.py)
- - write a script to take the output of [next.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20300/next.py) and turn it into letters
- - find ways to improve [shift.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20300/shift.py)
+ - find ways to improve [next.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20300/next.py)
+ - write a script to take the output of [next.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20300/next.py) and turn it into letters
+ - find ways to improve [shift.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20300/shift.py)
 
 ## More Resources
 - https://www.programiz.com/python-programming/methods/built-in

@@ -28,7 +28,7 @@
 This course will introduce you to using Python to communicate with remote endpoints. You will encounter challenges that are hosted on a remote IP address and port, so you must be able to connect to it to recieve and send data. We will discuss two main ways to do so. The first is using Python's built-in socket programming library, and the second is using a third-party library called `pwntools` (usually used for binary exploitation challenges, but are also helpful for basic remote comms as well).
 
 ## Python Sockets
-Sockets allow for linking communication between two different processes over a network. In our case, the two parties communicating will be the challenge, and you, the player. To learn the basics of how we can send and receive data from a remote endpoint, we will look at a very simple example. The following code will be for the server we will be communicating with ([echo-server.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20400/echo-server.py)):
+Sockets allow for linking communication between two different processes over a network. In our case, the two parties communicating will be the challenge, and you, the player. To learn the basics of how we can send and receive data from a remote endpoint, we will look at a very simple example. The following code will be for the server we will be communicating with ([echo-server.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20400/echo-server.py)):
 ```python
 import socket
 
@@ -148,7 +148,7 @@ usage: pwn [-h]
 ```
 
 ### Client Code
-Let's start by looking at the code and breaking it down ([pwn-client.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20400/pwn-client.py)):
+Let's start by looking at the code and breaking it down ([pwn-client.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20400/pwn-client.py)):
 ```python
 from pwn import *
 
@@ -223,7 +223,7 @@ Hello
 Just what we expected! 
 
 ## Challenge
-We are now ready to solve a simple challenge. I will not be going over the server code, but you can try to look over it and understand it yourself, if you want to. The server code is [chal-server.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20400/chal-server.py). We can see what this does by running it in one terminal and connecting to it using netcat from another. Example output:
+We are now ready to solve a simple challenge. I will not be going over the server code, but you can try to look over it and understand it yourself, if you want to. The server code is [chal-server.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20400/chal-server.py). We can see what this does by running it in one terminal and connecting to it using netcat from another. Example output:
 ```console
 $ nc localhost 42069
 What's the answer to the following math problem?
@@ -408,7 +408,7 @@ We got a flag!
 You might have noticed that we didn't end up having any interactive control, but that is because before we had the chance to, the connection closed after spitting out the flag. You can better understand what's happening if you make the for loop go 4 times instead of 5, so it will end up spitting you out to answer the 5th question. 
 
 ## Next Steps
- - make [chal-client.py](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Misc/SCRIPT%20400/chal-client.py) more versatile 
+ - make [chal-client.py]((https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20400/chal-client.py) more versatile 
 
 ## More Resources
 - https://realpython.com/python-sockets/
