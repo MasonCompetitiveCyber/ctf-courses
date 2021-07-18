@@ -17,4 +17,4 @@ Reversing - Rob
 PWN - Nihaal  
 Web - Nihaal, Andy  
 OSINT - Daniel  
-Scripting - Daniel  
+Scripting - Daniel, Michael

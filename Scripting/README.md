@@ -17,6 +17,7 @@ Scripting is a very import skill to have in cybersecurity and for CTFs. Having a
 - [SCRIPT 200](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20200) - TBD
 - [SCRIPT 300](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20300) - Python: Useful Built-in Functions
 - [SCRIPT 310](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20310) - Python: Useful Libraries
+- [SCRIPT 320](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20320) - Python: File Manipulation
 - [SCRIPT 400](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Scripting/SCRIPT%20400) - Python: Interacting w/ Sockets
 
 TODO:
