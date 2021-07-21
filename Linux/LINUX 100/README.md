@@ -26,7 +26,7 @@ As students, we are given access to install the Pro version of VMware Workstatio
    - NOTE: Your password is NOT your GMU email or PatriotWeb password. If you don’t know your password, click “Forgot Username or Password.”
 2. Select the correct VMware product. Choose `VMware Workstation 16.x Pro` if you are using Windows and  `VMware Fusion 12.x Pro` if you are using Mac.
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/vmware-selection.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/vmware-selection.png" width=75%  height=75%><br>
 </p>
 
 3. Add the product to your cart and checkout. You should see a product key. Save that somewhere (like copy/paste it into notepad) as you will need it later. Now press the Download button (sorry I don't have screenshots for this as I am not allowed to check out again since I have already done so before).
@@ -38,17 +38,17 @@ As students, we are given access to install the Pro version of VMware Workstatio
 2. Go to https://www.kali.org/get-kali/#kali-virtual-machines and click on the VMware downoad. You should get a large .7z file
 3. Use 7zip to unzip the file
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/7zip.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/7zip.png" width=60%  height=60%><br>
 </p>
 
 4. You should no have the unzipped folder that has the following contents. You should move this folder to a location where you want to keep your VMs. VMware will default to creating VMs in a "Virtual Machines" folder it will place in your "Documents" folder (if you end up making VMs from .iso files. You don't really need to worry about this because you can change that location too). I just make my own "VMs" folder to put them in. 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/unzipped.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/unzipped.png" width=50%  height=50%><br>
 </p>
 
 5. You should see a `.vmx` file somewhere near the top. Right click on it and open it with VMware Workstation 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/vmx.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/vmx.png" width=60%  height=60%><br>
 </p>
 
 6. Now you can power on the VM. If you get a pop-up right away, just press "I Copied It"
@@ -64,7 +64,7 @@ As students, we are given access to install the Pro version of VMware Workstatio
   - Press "Edit virtual machine settings"
   - Set the settings however you would like depending on the laptop/computer you are running on. 2GB of memory should be enough, but if you have enough to spare, bumping it up to 4GB would be nice. You can also increase/decrease the # of processors and Hard Disk space as well if you want to 
 <p align="center">
-    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/first-open.png" width=40%  height=40%><br>
+    <img src="https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/images/linux/first-open.png" width=85%  height=85%><br>
 </p>
 
 ## Creators
