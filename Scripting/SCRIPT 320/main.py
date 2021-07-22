@@ -7,7 +7,7 @@ def create():
     for line in lines:
         beeString += ' ' + line.strip('\n')
     # Write to the file
-    with open('C:\\Users\\micha\\Desktop\\awd\\beeMovieLine.txt', 'w') as f:
+    with open('<YOUR DIR HERE>beeMovieLine.txt', 'w') as f:
         f.write(beeString[1:])
 
 def solve():
@@ -19,7 +19,7 @@ def solve():
     words = line.split()
     # Create blank string.
     output = ""
-    for n in range(3, 17, 1):  # First num is start; Second num is stop (+1 to account for it being inclusive).
+    for n in range(0, 20+1):  # First num is start; Second num is stop (+1 to account for it being inclusive).
         # Pass number into Fibonacci function & get back its value.
         FibNum = Fibonacci(n)
         # Use Fibonacci number to get list indexed word. Add one to account for list index starting at 0.
