@@ -7,10 +7,10 @@
 
 - [Prerequisites](#prerequisites)
 - [Introduction](#introduction)
-- [Opening a file](#Opening a file)
+- [Opening a file](#Opening-a-file)
 - [Reading](#Reading)
 - [Writing](#Writing)
-- [The problem](#The problem)
+- [The problem](#The-problem)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
