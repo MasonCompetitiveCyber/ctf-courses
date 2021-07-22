@@ -1,21 +1,16 @@
-<h1 align="center">SCRIPT 310</h1>
+<h1 align="center">SCRIPT 320</h1>
   <p align="center">
-     Python: Useful Libraries
+     Python: File Manipulation
   </p>
 
 ### Table of contents
 
 - [Prerequisites](#prerequisites)
 - [Introduction](#introduction)
-- [General](#general)
-  - [string](#string)
-  - [pprint](#pprint)
-- [Data Conversion](#data-conversion)
-  - [base64](#base64)
-  - [binascii](#binascii)
-  - [`bytes.hex()` and `bytes.fromhex()`](#byteshex-and-bytesfromhex)
-- [Example CTF Problem](#example-ctf-problem)
-- [Next Steps](#next-steps)
+- [Opening a file](#Opening a file)
+- [Reading](#Reading)
+- [Writing](#Writing)
+- [The problem](#The problem)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -27,7 +22,6 @@
 
 ## Introduction
 This will introduce you to file manipulation and very basic OSINT research.
-
 
 ## Opening a file
 Opening a file in python requires the use of the open() function. This function takes two parameters; filename/path, and [mode](https://www.w3schools.com/python/python_file_handling.asp). The most common use is to assign this function to a variable.
