@@ -39,7 +39,7 @@ with open("path to file", "w") as f:
 
 print("this code would run with the file closed")
 ```
-Note: On linux you can use the normal "/" in the file path, however for windows you need to escape the "\\" with a second back slash like so "\\\".
+Note: On linux you can use the normal "/" in the file path, however for windows you need to escape the "\\" with a second back slash like so "\\\\".
 
 The basic modes you'll need are x, a, and w.
 - `"x"` - Create - will create a file, returns an error if the file exist.
