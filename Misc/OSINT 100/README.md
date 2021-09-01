@@ -8,7 +8,7 @@
 - [Introduction](#introduction)
 - [CTF Challenge Methodology](#ctf-challenge-methodology)
 - [Tools](#tools)
-- [Practice](#practice)
+- [Practice:](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -76,8 +76,6 @@ Now just pull up Google Lens on your phone and take a picture of the image. It m
 There are so many more tools out there, so I will link to a couple lists. What you may want to do is install the [Trace Labs OSINT VM ](https://www.tracelabs.org/initiatives/osint-vm#downloads). Instructions [here](https://download.tracelabs.org/Trace-Labs-OSINT-VM-Installation-Guide-v2.pdf). It contains basically any OSINT tool you would need and sorts all web-based tools in a bookmark in firefox, so it's super easy to use. The OSINT category of CTF challenges requires you to think creatively and be persistent, which is something I can't really show you here. You do not need basically any prerequisite knowledge to solve the challenges other than knowing some of these useful tools that can help.
 
 ## Practice:
-- TCTF: TODO
-- picoCTF: TODO
 - TryHackMe: 
     - https://tryhackme.com/room/ohsint
     - https://tryhackme.com/room/sakura

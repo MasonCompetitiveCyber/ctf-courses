@@ -5,26 +5,25 @@
 
 ### Table of contents
 
-- [0 - Introduction](#introduction)
-- [1 - Chapter 1 Title](#chapter-1-title)
-- ...
+- [Introduction](#introduction)
+- [Chapter 1 Title](#chapter-1-title)
+- [Chapter 2 Title](#chapter-2-title)
 - [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
-- [Helpful Markdown](#helpful-markdown)
 
-## 0 - Introduction
+## Introduction
 
 This is an introduction to the topic
 
-## 1 - Chapter 1 Title
+## Chapter 1 Title
 
 first chapter
 
-## 2 - Chapter 2 Title
+## Chapter 2 Title
 second chapter
 
-## Practice:
+## Practice
 - TCTF: challenge title or link: https://tctf.competitivecyber.club/challenges#Strcmp-106
 	- try to get at least one TCTF challenge
 - Whatever else you find; ex:
@@ -33,7 +32,7 @@ second chapter
 
 Note: If relevant, you can put practice challenges within chapters themselves. 
 
-## More Resources:
+## More Resources
 - https://portswigger.net/web-security/all-labs
 - https://cryptohack.org/
 - ...

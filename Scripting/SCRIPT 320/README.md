@@ -7,10 +7,10 @@
 
 - [Prerequisites](#prerequisites)
 - [Introduction](#introduction)
-- [Opening a file](#Opening-a-file)
-- [Reading](#Reading)
-- [Writing](#Writing)
-- [The problem](#The-problem)
+- [Opening a file](#opening-a-file)
+- [Reading](#reading)
+- [Writing](#writing)
+- [The problem](#the-problem)
 - [More Resources](#more-resources)
 - [Creators](#creators)
 
@@ -89,7 +89,6 @@ with open("path to file", "a") as f:
 Additionally, python's string operators will work when writing to the file
 - `"\n"`  -  New line - Makes a new line
 - `"\t"`  -  Tab - Makes a tab
-
 
 ## The problem
 You need the password to your friends laptop. The two hints he gave you is that he REALLY loves the bee movie script and math. For some odd reason he gave you a text file called "beeMovieScript.txt". You also know that your friend was recently learning about the bee reproductive cycle in his natural sciences class. Good luck!

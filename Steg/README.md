@@ -3,10 +3,9 @@
 ### Table of contents
 
 - [Introduction](#introduction)
-- [Prerequisites](#Prerequisites)
+- [Prerequisites](#prerequisites)
 - [Course List](#course-list)
 - [More Resources](#more-resources)
-- [Creators](#creators)
 
 ## Introduction
 Steganography is a very broad field with many applications in the real world, such as hiding malicious code in images as seen in [Operation Shady RAT](https://www.darkreading.com/attacks-breaches/operation-shady-rat-attackers-employed-steganography/d/d-id/1136162), but in these classes you will learn the basics of steganography with a focus on its applications in CTF challenges. The main topics will include some of the more popular methods employed in easy image and audio steg CTF challenges.
@@ -28,7 +27,3 @@ Steganography is a very broad field with many applications in the real world, su
 - [Stego Toolkit](https://github.com/DominicBreuker/stego-toolkit)
 - [Steg-related Forensics](https://trailofbits.github.io/ctf/forensics/)
 - Just google "steganography ctf writeup"
-
-
-TODO:
-- Link and/or make tctf chals

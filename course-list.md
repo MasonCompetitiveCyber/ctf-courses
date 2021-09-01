@@ -1,3 +1,7 @@
+# Initial Draft of Course Offerings
+These are not updated and just serve as a guideline for the development of coursework. 
+<br><br><br>
+
 **CTF 101** - What is a CTF? How to participate in CTFs, what you will learn, etc.  (will probably be the main README)
 ## Linux
 **Linux 100** - Setting up a Kali Linux VM  
