@@ -17,7 +17,7 @@
   - [Special Permissions](#special-permissions)
     - [The setuid bit](#the-setuid-bit)
     - [The setgid bit](#the-setgid-bit)
-- [Shortcuts](#shortcuts)
+- [CLI Shortcuts](#cli-shortcuts)
 - [Practice](#practice)
 - [More Resources](#more-resources)
 - [Creators](#creators)
@@ -218,8 +218,18 @@ While to apply the sticky bit:
 The use of special permissions can be very useful in some situations, but if not used correctly the can introduce serious vulnerabilities, so think twice before using them.
 
 
-## Shortcuts
-To be completed
+## CLI Shortcuts
+There are some useful keyboard shortcuts that will make your life a lot easier when using the CLI. Here are some of the most common:
+| shortcut | description |
+| -------- | ----------- |
+| tab | Attempt to autocomplete the filename, directory name, or command you are typing |
+| ctrl + c | Interrupt (kill) the current foreground process running in in the terminal |
+| ctrl + z | Suspend the current process |
+| type "fg" | Bring suspended process back into foreground, aka un-suspend it |
+| type "bg" | Have the suspended process run in the background |
+| up arrow | Go to the previous command in the command history. Press the shortcut multiple times to walk back through the history |
+| down arrrow | Go to the next command in the command history. Press the shortcut multiple times to walk forward through the history |
+| ctrl + r | Reverse searcgRecall the last command matching the characters you provide. Press this shortcut and start typing to search your bash history for a command |
 
 
 ## Practice
@@ -237,7 +247,7 @@ To be completed
 
 ## Creators
 
-**Daniel Getter**
+**Daniel Getter**<br>
 **Chris Walker**
 
 Enjoy :metal:
