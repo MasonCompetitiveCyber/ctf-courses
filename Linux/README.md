@@ -14,5 +14,5 @@ Using Linux is a necessary skill for technical work in cybersecurity and competi
 
 ## Course List
 - [LINUX 100](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Linux/LINUX%20100) - Kali Linux and VMware
-- [LINUX 200](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Linux/LINUX%20200) - Linux Basics (Work in Progress) 
+- [LINUX 200](https://github.com/MasonCompetitiveCyber/ctf-courses/raw/main/Linux/LINUX%20200) - Linux Basics
 - LINUX 300 - Useful Linux Commands (To Be Completed)
