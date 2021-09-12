@@ -28,7 +28,7 @@ Out of those that are currently done (for the most part)
 If you want to contribute to this project, please contact dgetter@gmu.edu. We welcome anybody to help contribute their knowledge and grow our available coursework. For example, if you are interested in post-quantum cryptography and that is not yet a course we offer, feel free to get in touch and we will make it happen. If a course already exists and you want to expand or improve upon it, get in touch and we will make that happen as well. This should be an always evolving and growing project for the benefit of everybody. 
 
 ## TODO List
-- Finish Linux 200 and Create Linux 300
+- Create Linux 300
 - Create Scripting 200
 - Create Cryptography coursework
 - Create Reverse Engineering coursework
