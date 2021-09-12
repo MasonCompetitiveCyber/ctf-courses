@@ -1,4 +1,4 @@
-<h1 align="center">LINUX 200 (Work in Progress)</h1>
+<h1 align="center">LINUX 200</h1>
   <p align="center">
      Linux Basics 
   </p>
